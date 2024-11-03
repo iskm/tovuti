@@ -1,0 +1,39 @@
+name: deploy tovuti
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: check and fix typos
+      uses: crate-ci/typos@v1.20.1
+      with:
+        files:
+        write_changes: true
+
+    - name: install ruby on runner
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+    - run: |
+        bundle install
+        bundle exec jekyll build
+    - name: deploy
+      env:
+        SSH_KEY: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+        user: ${{ secrets.USERNAME }}
+        url: ${{ secrets.SERVER_URL }}
+        location:  ${{ secrets.LOCATION }}
+      run: |
+        echo "$SSH_KEY" > ssh_key
+        chmod 600 ssh_key
+        rsync -avz -e "ssh -i ssh_key -o StrictHostKeyChecking=no" ./_site/ \
+                                                                  $user@$url:$location
+        rm ssh_key
