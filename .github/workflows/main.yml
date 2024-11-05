@@ -18,14 +18,15 @@ jobs:
         files:
         write_changes: true
 
-    - name: install ruby on runner
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '3.1'
-        bundler-cache: true
-    - run: bundle exec rake
+    # make available locally on runner via apt
+    # - name: install ruby on runner
+    # uses: ruby/setup-ruby@v1
+    # with:
+    # ruby-version: '3.1'
+    # bundler-cache: true
+    # - run: bundle exec rake
     - run: |
-        bundle install
+        bundle install --path ~/.gem
         bundle exec jekyll build
     - name: deploy
       env:
