@@ -35,11 +35,11 @@
 .rectangle {
   position: relative;
   display: inline-block;
-  width: 16px;
-  height: 24px;
+  width: 14px;
+  height: 20px;
   background: #93a1a1;
   border-radius: 3px;
-  animation: blinker 1s linear infinite;
+  animation: blinker 1.2s linear infinite;
 }
 
 @keyframes blinker {

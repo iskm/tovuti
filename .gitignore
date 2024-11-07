@@ -5,3 +5,4 @@ postgres
 gitea
 compose.yaml
 Gemfile.lock
+.runner.sh
