@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tovuti
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tovuti
+  namespace: tovuti
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: tovuti.homelab.local
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    name: http
+    targetPort: 80
+  selector:
+    app: tovuti
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tovuti
+  namespace: tovuti
+spec:
+  selector:
+    matchLabels:
+      app: tovuti
+  template:
+    metadata:
+      labels:
+        app: tovuti
+    spec:
+      containers:
+      - image: gitea.kwerezigua.org/iskm/tovuti:latest
+        name: tovuti
