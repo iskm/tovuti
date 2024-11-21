@@ -34,9 +34,21 @@ jobs:
         user: ${{ secrets.USERNAME }}
         url: ${{ secrets.SERVER_URL }}
         location:  ${{ secrets.LOCATION }}
+        gitea_user: ${{ secrets.GITEA_USER }}
+        gitea_pass: ${{ secrets.GITEA_PASS }}
       run: |
         echo "$SSH_KEY" > ssh_key
         chmod 600 ssh_key
         rsync -avz -e "ssh -i ssh_key -o StrictHostKeyChecking=no" ./_site/ \
                                                                   $user@$url:$location
         rm ssh_key
+
+    - name: deploy
+      env:
+        gitea_user: ${{ secrets.GITEA_USER }}
+        gitea_pass: ${{ secrets.GITEA_PASS }}
+      run: |
+        docker login gitea.kwerezigua.org -u $gitea_user -p $gitea_pass
+        docker build -t tovuti:latest  .
+        docker tag tovuti:latest gitea.kwerezigua.org/iskm/tovuti:latest
+        docker push gitea.kwerezigua.org/iskm/tovuti:latest
