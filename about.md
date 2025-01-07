@@ -18,10 +18,9 @@ Nyumbani, is a swahili word for home.
 I enjoy Heavy Metal, NuMetal, 2000s American Pop Punk, electronic music. Vibe
 below &#10084;&#65039;
 <iframe class="img-about" width="740" height="315"
-src="https://www.youtube.com/embed/dKXpEa6g8kY?si=PvShcXNrf7V5I20T"
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+scrolling="no" frameborder="no" allow="autoplay"
+src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/11104450&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+<div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/ambassadeurs" title="Ambassadeurs" target="_blank" style="color: #cccccc; text-decoration: none;">Ambassadeurs</a> · <a href="https://soundcloud.com/ambassadeurs/ambassadeurs-tyrrhena-patera" title="Tyrrhena Patera" target="_blank" style="color: #cccccc; text-decoration: none;">Tyrrhena Patera</a></div>
 
 Kila la heri
 
