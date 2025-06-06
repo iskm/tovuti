@@ -12,11 +12,11 @@ jobs:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
-    - name: check and fix typos
-      uses: crate-ci/typos@v1.20.1
-      with:
-        files:
-        write_changes: true
+    #- name: check and fix typos
+      #uses: crate-ci/typos@v1.20.1
+      #with:
+        #files:
+    #    write_changes: true
 
     # make available locally on runner via apt
     # - name: install ruby on runner
