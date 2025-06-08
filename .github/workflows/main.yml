@@ -43,7 +43,7 @@ jobs:
                                                                   $user@$url:$location
         rm ssh_key
 
-    - name: deploy
+    - name: deploy to gitea
       env:
         gitea_user: ${{ secrets.GITEA_USER }}
         gitea_pass: ${{ secrets.GITEA_PASS }}
@@ -52,3 +52,12 @@ jobs:
         docker build -t tovuti:latest  .
         docker tag tovuti:latest gitea.kwerezigua.org/iskm/tovuti:latest
         docker push gitea.kwerezigua.org/iskm/tovuti:latest
+
+    - name: deploy to harbor
+      env:
+        gitea_user: ${{ secrets.GITEA_USER }}
+        gitea_pass: ${{ secrets.GITEA_PASS }}
+      run: |
+        docker login harbor.kwerezigua.org -u $gitea_user -p $gitea_pass
+        docker tag gitea.kwerezigua.org/iskm/tovuti:latest harbor.kwerezigua.org/iskm/tovuti:latest
+        docker push harbor.kwerezigua.org/iskm/tovuti:latest
